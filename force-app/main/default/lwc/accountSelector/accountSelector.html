@@ -1,3 +1,31 @@
 <template>
-    
+    <lightning-card icon-name="standard:account" title="Accounts">
+        <div class="slds-p-left_x-large">
+            <!-- Search Input Field -->
+            <div onkeyup={generateAccountData} class="slds-p-right_x-large">
+                <lightning-input 
+                    type="search"
+                    name="account-search"
+                    label="Enter account name to search"
+                    onchange={generateAccountData}>
+                </lightning-input>
+            </div>
+
+            <template if:true={queryTerm}>
+                <template if:true={accounts.length}>
+                    <div class="scroll-container">
+                        <ul class="account-list">
+                            <template for:each={accounts} for:item="account">
+                                <li key={account.Id}>{account.Name}</li>
+                            </template>
+                        </ul>
+                    </div>
+                </template>
+
+                <template if:false={accounts.length}>
+                    <p>No accounts found for "{queryTerm}".</p>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
 </template>

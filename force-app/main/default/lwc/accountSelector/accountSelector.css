@@ -1,0 +1,28 @@
+.scroll-container {
+    max-height: 12.7rem; /* Adjust based on desired 4-item height */
+    overflow-y: auto;
+    position: relative;
+}
+
+.account-list {
+    border: 1.5px solid #ccc;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.account-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.scroll-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2rem;
+    background: linear-gradient(to bottom, transparent, white); /* Fade effect */
+    pointer-events: none;
+}
